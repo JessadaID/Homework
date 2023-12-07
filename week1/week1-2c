@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+void GetSet( int *data[], int *num ) ;
+
+int main() {
+ int *data, num ;
+ GetSet( &data, &num ) ;
+ return 0 ;
+}//end function
+
+void GetSet( int *data[], int *num ){
+	int i = 0 ;
+	printf("input your max number : ");
+	scanf("%d", num);
+	
+	//printf("%d",*num);
+	
+	for(i = 0 ; i < *num ; i++){
+		printf("(%d) input your number : ",i + 1);
+		scanf("%d",&data[ i ]);
+	}//end for
+}//end function
