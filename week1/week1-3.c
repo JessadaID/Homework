@@ -10,17 +10,17 @@ int main() {
 }//end function
 
 int *GetSet( int *num ){
-	int i;
-	printf("\ninput your size set : ");
-	scanf("%d",num);
-	int set[ *num ];
+	int i ;
+	printf("\ninput your size set : ") ;
+	scanf("%d",num) ;
+	int set[ *num ] ;
 	for (i = 0;i < *num ; i++){
-		printf("\ninput your value of set : ");
-		scanf("%d", &set[ i ]);
+		printf("\ninput your value of set : ") ;
+		scanf("%d", &set[ i ]) ;
 	}//end for
 	
 	for (i = 0;i < *num ; i++){
-		printf("\n%d <== from getset", set[ i ]);
+		printf("\n%d <== from getset", set[ i ]) ;
 	}//end for
-	return set;
+	return set ;
 }//end function
