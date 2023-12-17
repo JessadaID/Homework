@@ -17,9 +17,9 @@ int *GetSet( int *arr[] ){
 	for (i = 0 ; i < num ; i++){
 		printf("\ninput your value of member : ");
 		scanf( "%d" , &arr[ i ]);
-	}
+	}//end for
 	
 	for (i = 0;i < num ; i++){
 		printf("\n%d <== from GetSet", arr[ i ]);
-	}
-}
+	}//end for
+}//end function
