@@ -10,16 +10,16 @@ int main() {
 }//end function
 
 int *GetSet( int *arr[] ){
-	int i,num;
-	printf("\ninput your number of member : ");
-	scanf( "%d" , &num);
-	int set[ num ];
+	int i , num ;
+	printf("\ninput your number of member : ") ;
+	scanf( "%d" , &num) ;
+	int set[ num ] ;
 	for (i = 0 ; i < num ; i++){
-		printf("\ninput your value of member : ");
-		scanf( "%d" , &arr[ i ]);
+		printf("\ninput your value of member : ") ;
+		scanf( "%d" , &arr[ i ]) ;
 	}//end for
 	
 	for (i = 0;i < num ; i++){
-		printf("\n%d <== from GetSet", arr[ i ]);
+		printf("\n%d <== from GetSet", arr[ i ]) ;
 	}//end for
 }//end function
