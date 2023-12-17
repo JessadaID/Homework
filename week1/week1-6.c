@@ -13,12 +13,12 @@ int main() {
 	
 	int *value;
 	printf("How many row,col ? : ");
-	scanf("%d %d",row,col);
+	scanf("%d %d", row , col);
 	
 	value = new int [*row * *col];
 	for(int i = 0 ; i < *row ; i++){
 		for(int j = 0 ; j < *col ; j++){
-			printf("value [%d][%d] \n",i,j);
+			printf("value [%d][%d] \n", i , j);
 			scanf("%d",&value[i * *col + j]);
 		}	
 	}
@@ -28,7 +28,7 @@ int main() {
 	
 	for(int i = 0 ; i < *row ; i++){
 		for(int j = 0 ; j < *col ; j++){
-			printf("[%d]",value[i * *col + j]);
+			printf("[%d]", value[i * *col + j]);
 		}
 		printf("\n");	
 	}
