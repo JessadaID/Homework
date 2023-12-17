@@ -9,18 +9,18 @@ int main() {
 }//end function
 
 void GetMatrix( int *value[], int *row, int *col ){
-	printf("How many row,col ? : ");
-	scanf("%d %d", row , col);
+	printf("How many row,col ? : ") ;
+	scanf("%d %d", row , col) ;
 	
-	*value = new int [*row * *col];
+	*value = new int [*row * *col] ;
 	
-	//printf("%d", value);
+	//printf("%d", value) ;
 	
 	
 	for(int i = 0 ; i < *row ; i++){
 		for(int j = 0 ; j < *col ; j++){
-			printf("value [%d][%d] \n", i , j);
-			scanf("%d", &(*value)[i * *col + j]);
+			printf("value [%d][%d] \n", i , j) ;
+			scanf("%d", &(*value)[i * *col + j]) ;
 		}//end for	
 	}//end for
 	
@@ -28,9 +28,9 @@ void GetMatrix( int *value[], int *row, int *col ){
 	
 	for(int i = 0 ; i < *row ; i++){
 		for(int j = 0 ; j < *col ; j++){
-			printf("[%d]", (*value)[i * *col + j]);
+			printf("[%d]", (*value)[i * *col + j]) ;
 		}//end for
-		printf("\n");	
+		printf("\n") ;	
 	}//end for
 	
 }//end function
