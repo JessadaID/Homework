@@ -28,10 +28,7 @@ void upgrade( struct student *child ){
 		child->gpa  += child->gpa * 0.1 ;
 	}else if(child->sex == 'F'){
 		child->gpa  += child->gpa * 0.2 ;
-	}
+	}//end if
 	printf("=======AFTER=======\n") ;
 	printf(" %c\n", child->sex) ;
-
-	
-	
-}
+}//end function
