@@ -30,7 +30,7 @@ int main() {
  now2 = &start ;
 
  GoNext2( &now2 ) ;
- printf( "%s ", (*now2)->name ) ;
+ printf( "node2 is %s ", (*now2)->name ) ;
 
  return 0 ;
 }//end function
