@@ -50,6 +50,4 @@ void GoNext1( struct studentNode *walk ){
     } else {
         printf("Next node is NULL\n");
     }
-	  
-
 }
