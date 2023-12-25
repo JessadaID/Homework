@@ -23,8 +23,17 @@ void GetStudent( struct student child[][ 10 ], int *room ){
 		//scanf("%s", child[ i ] ) ;
 			for (int j = 0 ; j < 10 ; j++ ){
 				//printf("%d ",i);
-				printf("Enter student [%d] : ", j+1 ) ;
-				scanf("%s", child[ i ][ j ] ) ;
+				printf("Enter student name [%d] : ", j+1 ) ;
+				scanf("%s", &child[ i ][ j ] ) ;
+			}
+	}//end for
+	
+	
+		for (int i = 0 ; i < *room ; i++ ){
+		printf("Room [%d]  is : \n", i+1 ) ;
+			for (int j = 0 ; j < 10 ; j++ ){
+				//printf("%d ",i);
+				printf("student [%d] name is : %s\n", j , child[ i ][ j ] ) ;
 			}
 	}//end for
 }
