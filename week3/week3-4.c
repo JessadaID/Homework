@@ -19,13 +19,12 @@ void GetStudent( struct student child[][ 10 ], int *room ){
 	
 	for (int i = 0 ; i < *room ; i++ ){
 		//printf("%d ",i);
-		printf("Room [%d] : ", i+1 ) ;
-		scanf("%s", child[ i ] ) ;
-	}//end for
-	
-	printf("\n=====Result=====\n") ;
-	for (int i = 0 ; i < *room ; i++ ){
-		//printf("%d ",i);
-		printf("Room [%d] is : %s \n", i+1 , child[ i ]) ;
+		printf("Room [%d] : \n", i+1 ) ;
+		//scanf("%s", child[ i ] ) ;
+			for (int j = 0 ; j < 10 ; j++ ){
+				//printf("%d ",i);
+				printf("Enter student [%d] : ", j+1 ) ;
+				scanf("%s", child[ i ][ j ] ) ;
+			}
 	}//end for
 }
