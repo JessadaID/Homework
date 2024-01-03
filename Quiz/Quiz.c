@@ -10,7 +10,7 @@ int main(){
 	int j = 0 ;
 	int k = 5 ;
 	int holdA[ 7 ] ;
-
+	int holdB[ 7 ] ;
 	char Operator ; 
 	
 	//==Section 1 
@@ -27,9 +27,9 @@ int main(){
 	
 	printf("Enter number B : \n") ;
 	do{
-		printf("A[%d] : ", j ) ;
+		printf("B[%d] : ", j ) ;
 		scanf("%d", &B[ j ]) ;
-		
+		holdB[ j ] = B[ j ] ;
 		//printf("%d",B[ j ]) ; 
 		j++ ; 
 	} while( j < 6 ) ; //end do while
@@ -92,8 +92,3 @@ void printresult (char Operator, int A[] , int B[], int Answer[]){
 	printf("Answer : \t%d\t%d\t%d\t%d\t%d\t%d\t%d\n",Answer[ 0 ], Answer[ 1 ], Answer[ 2 ], Answer[ 3 ], Answer[ 4 ], Answer[ 5 ], Answer[ 6 ]) ; 
 	printf("========================================================================================\n") ; 
 }//end function
-
-
-
-
-
