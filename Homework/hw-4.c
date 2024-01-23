@@ -101,28 +101,5 @@ void swap(struct studentNode **walk,char sw1[],char sw2[]){
     struct studentNode *temp = curr1->next;
     curr1->next = curr2->next;
     curr2->next = temp;
-/*
-	while (*walk != NULL) {
-
-		
-        if(strcmp((*walk)->name, sw1) == 0 ){
-        	//printf("%s\n",(*walk)->name);
-        	temp1 = *walk ;
-        	//printf("%s===\n",temp1);
-		}
-		
-		if(strcmp((*walk)->name, sw2) == 0 ){
-        	//printf("%s\n",(*walk)->name);
-        	temp2 = *walk ;
-        	//printf("%s===\n",temp2);
-        	
-		}
-		
-		walk = &(*walk)->next;
-		
-    }
-	
-	*walk = temp1 ;
-	*/
 
 }
