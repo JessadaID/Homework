@@ -26,7 +26,7 @@ int main() {
     Gonext(start);
     
     printf("\n========After swap======== ");
-    swap(&start,"one","five");
+    swap(&start,"four","two");
 	//printf("%s",start->next->back);
 	
 	Gonext(start);
@@ -82,43 +82,35 @@ struct studentNode *AddNode(struct studentNode **walk, char name[], int age, cha
     return *walk;
 }
 
-void swap(struct studentNode **walk,char sw1[],char sw2[]){
+void swap(struct studentNode **walk, char sw1[], char sw2[]) {
 
-	if (*walk == NULL || sw1 == NULL || sw2 == NULL) {
-        printf("%s\n","Invalid input for swap.") ;
+    if (*walk == NULL || sw1 == NULL || sw2 == NULL) {
+        printf("%s\n", "Invalid input for swap.");
         return;
     }
 
     if (strcmp(sw1, sw2) == 0) {
-    	printf("%s\n","Cannot swap a node with itself.") ;
+        printf("%s\n", "Cannot swap a node with itself.");
         return;
     }
-	//create a node 
-	struct studentNode *prev1 = NULL, *curr1 = *walk;	
-	while (curr1 != NULL && strcmp(curr1->name, sw1) != 0) {
-		//prev1 save value of curr1
-		
+
+    struct studentNode *prev1 = NULL, *curr1 = *walk;
+    while (curr1 != NULL && strcmp(curr1->name, sw1) != 0) {
         prev1 = curr1;
-        //curr1 next node
         curr1 = curr1->next;
-        
-        //printf("%s ", prev1->name);
-        //printf("%s ", curr1->name);
-        
     }
-    
-    printf("\n");
-    struct studentNode *prev2 = NULL, *curr2 = *walk;	
-	while (curr2 != NULL && strcmp(curr2->name, sw2) != 0) {
-		//prev1 save value of curr1
+
+    struct studentNode *prev2 = NULL, *curr2 = *walk;
+    while (curr2 != NULL && strcmp(curr2->name, sw2) != 0) {
         prev2 = curr2;
-        //curr1 next node
         curr2 = curr2->next;
-        
-        //printf("%s ", prev2->name);
-        //printf("%s ", curr2->name);
     }
-    
+
+    if (curr1 == NULL || curr2 == NULL) {
+        printf("%s\n", "Nodes not found for swap.");
+        return;
+    }
+
     if (prev1 != NULL) {
         prev1->next = curr2;
         curr2->back = prev1;
@@ -126,7 +118,7 @@ void swap(struct studentNode **walk,char sw1[],char sw2[]){
         *walk = curr2;
         curr2->back = NULL;
     }
-    
+
     if (prev2 != NULL) {
         prev2->next = curr1;
         curr1->back = prev2;
@@ -134,15 +126,20 @@ void swap(struct studentNode **walk,char sw1[],char sw2[]){
         *walk = curr1;
         curr1->back = NULL;
     }
-    
+
+    // Update back pointers for nodes after swapping
     struct studentNode *temp1 = curr1->next;
     struct studentNode *temp2 = curr2->next;
-    //set sw1 to sw2
-    curr1->next = curr2->next;
-    temp2->back = curr1;
-    //printf("%s\n",curr2);
-    //set sw2 to sw1
+
+    if (temp1 != NULL) {
+        temp1->back = curr2;
+    }
+
+    if (temp2 != NULL) {
+        temp2->back = curr1;
+    }
+
+    // Swap next pointers
+    curr1->next = temp2;
     curr2->next = temp1;
-  	temp1->back = curr2 ;
-    
 }
