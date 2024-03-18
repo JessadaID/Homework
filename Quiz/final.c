@@ -4,7 +4,6 @@
 
 void read_csv();
 void show_data(int en_off, int en_on,int asia_off,struct order orders[]); 
-void bubble_sort(int n,struct order orders[]);
 
 struct order{
 	char Region[50];
