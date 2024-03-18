@@ -3,10 +3,11 @@
 #include <string.h>
 
 void read_csv();
-void show_data(int en_off, int en_on,int asia_off,struct order orders[]);
+void show_data(int en_off, int en_on,int asia_off,struct order orders[]); 
+void bubble_sort(int n,struct order orders[]);
 
 struct order{
-	char Region[30];
+	char Region[50];
 	char Country[30];
 	char iTem_Type[20];
 	char Sales_Channel[10];
@@ -22,6 +23,11 @@ struct order{
 	float Total_Profit;
 } ;
 
+typedef struct {
+    int value;
+    int index;
+} ValueIndex;
+
 int main(){
 	read_csv();
 	return 0;
@@ -31,7 +37,8 @@ void read_csv(){
 	char filename[30] = "5000 Sales Records.csv";
 	FILE *fp = fopen(filename,"r");
 	char *token;
-	struct order orders[5000];
+	int array_size = 5000;
+	struct order orders[array_size];
 	char row[1024];
 	
 	int eu_unit_sold_most_online = 0 ;
@@ -40,7 +47,8 @@ void read_csv(){
 	int address_en_online = 0 ;
 	int address_en_offline = 0 ;
 	int address_asia_offline = 0 ;
-	
+	//max value
+
 	//titel
 	fgets(row, 1024, fp);
 	
@@ -94,27 +102,38 @@ void read_csv(){
       	  		asia_unit_sold_most_offline = orders[i].Units_Sold;
       	  		address_asia_offline = i ;
 		  }
+		  
+		  if(strcmp(orders[i].Region,"Central America and the Caribbean") == 0 and strcmp(orders[i].Sales_Channel,"Online")== 0){
+      	  		
+		  }
       	  
+      	 
       	  i++;
 	}
 	
+	
+	 /*
 	printf("In Europe The most Unit sold in Online is : %d\n",eu_unit_sold_most_online);
 	printf("In Europe The most Unit sold in Offline is : %d\n",eu_unit_sold_most_offline);
-	printf("In Asia The most Unit sold in Offline is : %d\n",asia_unit_sold_most_offline);
-	/*
+	printf("In Asia The lowest Unit sold in Offline is : %d\n",asia_unit_sold_most_offline);
+
 	printf("Address en in Online is : %d\n",address_en_online);
 	printf("Address en in Offline is : %d\n",address_en_offline);
 	printf("Address asia in Offline is : %d\n",address_asia_offline);
 	*/
 	
-	
+    
 	show_data(address_en_offline,address_en_online,address_asia_offline,orders);
+	
+	
+
+	
 }
 
 void show_data(int en_off, int en_on,int asia_off,struct order orders[]){
 	//printf("%d %d %d",en_off,en_on,asia_off);
-
-	
+	int count = 0;
+	int array_size = 5000;
 	printf("\nIn Europe The most Unit sold in Online is : \n Region : %s \n Country : %s \n iTem_Type : %s \n Sales_Channel : %s \n Order_Priority : %s \n Order_date : %s \n Order_ID : %s \n Ship_Date : %s \n Units_Sold : %d \n Units_Price : %.2f \n Unit_Cost : %.2f \n Total_Revenue : %.2f \n Total_Cost : %.2f \n Total_Profit : %.2f \n",
 	orders[en_on].Region,
 	orders[en_on].Country,
@@ -169,4 +188,48 @@ void show_data(int en_off, int en_on,int asia_off,struct order orders[]){
 	orders[asia_off].Total_Cost,
 	orders[asia_off].Total_Profit
 	);
+	
+	// top ten amea
+	int g, h;
+	struct order temp;
+	  for (g = 0; g < array_size - 1; g++) {
+	    for (h = 0; h < array_size - g - 1; h++) {
+	      if (orders[h].Unit_Cost < orders[h+1].Unit_Cost) {
+	        temp = orders[h];
+	        orders[h] = orders[h + 1];
+	        orders[h + 1] = temp;
+	      }
+	    }
+	  }
+	
+	printf("\n==============TOP 10 MOST Unit Cost of Central America and the Caribbean in Online==============\n");
+	for(int i = 0 ; i < array_size ; i++){
+		if(strcmp(orders[i].Region,"Central America and the Caribbean") == 0 and strcmp(orders[i].Sales_Channel,"Online")== 0 ){
+			printf("\nIn Central America and the Caribbean The most Unit Cost in Online is : \n Region : %s \n Country : %s \n iTem_Type : %s \n Sales_Channel : %s \n Order_Priority : %s \n Order_date : %s \n Order_ID : %s \n Ship_Date : %s \n Units_Sold : %d \n Units_Price : %.2f \n Unit_Cost : %.2f \n Total_Revenue : %.2f \n Total_Cost : %.2f \n Total_Profit : %.2f \n",
+				orders[i].Region,
+				orders[i].Country,
+				orders[i].iTem_Type,
+				orders[i].Sales_Channel,
+				orders[i].Order_Priority,
+				orders[i].Order_date,
+				orders[i].Order_ID,
+				orders[i].Ship_Date,
+				orders[i].Units_Sold,
+				orders[i].Unit_Price,
+				orders[i].Unit_Cost,
+				orders[i].Total_Revenue,
+				orders[i].Total_Cost,
+				orders[i].Total_Profit
+	
+	);
+			count++;
+		}
+		if(count == 10){
+			break;
+		}
+		
+	}
+	printf("\n=================================================================\n");
+	
 }
+
